@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Futuristic Dark Theme Palette */
+  --background: 240 10% 3.9%;   /* Almost Black */
+  --foreground: 0 0% 98%;       /* White */
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 0 0% 98%;          /* White for primary actions */
+  --primary-foreground: 240 5.9% 10%; /* Dark text on white buttons */
+
+  --secondary: 240 3.7% 15.9%;  /* Dark Gray */
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+
+  --radius: 0.5rem;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-white selection:text-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+  
+  .futuristic-button {
+    @apply relative overflow-hidden bg-white text-black px-6 py-3 font-semibold 
+           transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .futuristic-input {
+    @apply bg-zinc-900/50 border-white/10 text-white placeholder:text-zinc-500
+           focus:border-white/40 focus:ring-0 transition-colors duration-200;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
